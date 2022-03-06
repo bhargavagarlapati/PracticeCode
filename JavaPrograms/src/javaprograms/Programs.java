@@ -28,7 +28,7 @@ public class Programs {
 		Programs.reversestring("Hello");
 		Programs.swap(2, 3);
 		Programs.duplicatewordregex("Hello Hello@!@ Hello123 Hi# Hi1242&*(");
-		System.out.println("Hello");
+		System.out.println("Updated Git Hub");
 
 	}
 
