@@ -1,0 +1,99 @@
+package Learning;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.regex.Pattern;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+public class Practice {
+
+	public static void main(String[] args) {
+
+		Integer I = 1331;
+
+		StringBuilder s = new StringBuilder(I.toString());
+
+		if (s.reverse().toString().equals(I.toString()))
+
+		{
+			System.out.println("Palindrome");
+		}
+
+		else {
+			System.out.println("Not a Palindrome");
+		}
+
+		Practice.m1();
+		Practice.m2();
+		Practice.m3();
+
+	}
+
+	public static void m1() {
+		int a[] = { 2, 2, 2, 3, 3, 4, 4, 6 };
+
+		HashMap<Integer, Integer> h = new HashMap<Integer, Integer>();
+
+		for (int i : a) {
+			h.compute(i, (key, value) -> value == null ? 1 : value + 1);
+		}
+
+		for (Entry<Integer, Integer> s : h.entrySet()) {
+			if (s.getValue() == 1)
+
+			{
+				System.out.println(s.getKey());
+			}
+		}
+	}
+
+	public static boolean palindromechecker(String s) {
+		for (int i = 0; i < s.length(); i++) {
+
+			if (!(s.charAt(i) == s.charAt(s.length() - i - 1))) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static void m2() {
+		Integer a[] = { 2, 2, 2, 3, 3, 4, 4, 6 };
+
+		List<Integer> l = Arrays.asList(a);
+
+		List<Integer> k = l.stream().filter(e -> Collections.frequency(l, e) == 1).distinct()
+				.collect(Collectors.toList());
+
+		Optional<Integer> k1 = l.stream().reduce((value, combinedvalue) -> {
+			return value + combinedvalue;
+		});
+
+		System.out.println(l.stream().mapToInt(e -> e).average().getAsDouble());
+
+	}
+
+	public static void m3() {
+		Integer a[] = { 4, 5, 9, 10, 12, 22, 13, -23 };
+
+		List<Integer> l = Arrays.asList(a);
+
+		// l.stream().filter(e->e%2!=0).forEach(e->System.out.println(e));
+
+		// System.out.println(l.stream().map(e -> e * e).filter(e -> e >=
+		// 100).mapToInt(e -> e).average().getAsDouble());
+
+		// l.stream().filter(e->(Pattern.matches("2.*",
+		// e.toString()))).forEach(e->System.out.println(e));
+
+		// l.stream().map(e->Math.abs(e)).filter(e->e.toString().startsWith("2")).collect(Collectors.toList());
+
+		System.out.println(l.stream().max((val1, val2) -> {return val1.compareTo(val2);}).get());
+
+	}
+
+}

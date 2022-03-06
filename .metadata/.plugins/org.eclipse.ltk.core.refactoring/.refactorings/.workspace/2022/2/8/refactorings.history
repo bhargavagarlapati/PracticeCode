@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;keyword-driven-framework&apos;" deleteContents="false" description="Delete resource &apos;keyword-driven-framework&apos;" element1="/keyword-driven-framework" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1645017578486"/>
+</session>

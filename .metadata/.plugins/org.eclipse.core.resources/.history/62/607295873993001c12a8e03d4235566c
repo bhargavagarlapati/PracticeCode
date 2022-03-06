@@ -1,0 +1,37 @@
+package Learning;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FI {
+
+	public static void main(String[] args) {
+
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\GARREDDY\\Documents\\Selenium\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.w3schools.com/sql/sql_orderby.asp");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		WebElement table = driver.findElement(By.xpath("//table[@class='ws-table-all notranslate']"));
+
+		int rowcount = table.findElements(By.xpath("//tr")).size();//6
+		int colcount = table.findElements(By.xpath("//tr//th")).size();
+
+		String[][] s = new String[rowcount - 1][colcount];//[5][7]
+
+		for (int i = 2; i < rowcount; i++) {
+			for (int j = 1; j <= colcount; j++) {
+				String xpath = "//table[@class='ws-table-all notranslate']//tr[" + i + "]//td[" + j + "]";				
+				s[i - 2][j - 1] = driver.findElement(By.xpath(xpath)).getText();
+				System.out.println(s[i - 2][j - 1]);
+			}
+		}
+
+	}
+
+}

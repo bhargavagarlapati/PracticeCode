@@ -1,0 +1,26 @@
+package Learning;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FI {
+
+	public static void main(String[] args) {
+
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\GARREDDY\\Documents\\Selenium\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.w3schools.com/sql/sql_orderby.asp");
+		driver.manage().window().maximize();
+
+		WebElement table = driver.findElement(By.xpath("//table[@class='ws-table-all notranslate']"));
+
+		List<WebElement> cells = table.findElements(By.xpath("//td"));
+		
+		
+		
+	}
+}

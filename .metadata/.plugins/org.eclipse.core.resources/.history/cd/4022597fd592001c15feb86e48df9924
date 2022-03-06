@@ -1,0 +1,75 @@
+package Learning;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class Practice {
+
+	public static void main(String[] args) {
+
+		Integer I = 1331;
+
+		StringBuilder s = new StringBuilder(I.toString());
+
+		if (s.reverse().toString().equals(I.toString()))
+
+		{
+			System.out.println("Palindrome");
+		}
+
+		else {
+			System.out.println("Not a Palindrome");
+		}
+
+		Practice.m1();
+		Practice.m2();
+
+	}
+
+	public static void m1() {
+		int a[] = { 2, 2, 2, 3, 3, 4, 4, 6 };
+
+		HashMap<Integer, Integer> h = new HashMap<Integer, Integer>();
+
+		for (int i : a) {
+			h.compute(i, (key, value) -> value == null ? 1 : value + 1);
+		}
+
+		for (Entry<Integer, Integer> s : h.entrySet()) {
+			if (s.getValue() == 1)
+
+			{
+				System.out.println(s.getKey());
+			}
+		}
+	}
+
+	public static boolean palindromechecker(String s) {
+		for (int i = 0; i < s.length(); i++) {
+
+			if (!(s.charAt(i) == s.charAt(s.length() - i - 1))) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static void m2() {
+		Integer a[] = { 2, 2, 2, 3, 3, 4, 4, 6 };
+
+		List<Integer> l = Arrays.asList(a);
+
+		List<Integer> k = l.stream().filter(e -> Collections.frequency(l, e) == 1).distinct()
+				.collect(Collectors.toList());
+
+		Integer.sum(1, 2);
+		
+		
+	}
+}

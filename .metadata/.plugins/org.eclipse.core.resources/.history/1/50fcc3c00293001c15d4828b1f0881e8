@@ -1,0 +1,20 @@
+package Learning;
+
+//import java.util.Date;
+import java.util.function.Function;
+import java.util.function.Predicate;
+
+public class FI {
+	
+	public static FI j;
+
+	public static void main(String[] args) {	
+		
+		Predicate<Integer> p = (s)->s>10;
+		System.out.println(p.test(5));
+		
+		Function<Integer,Integer> f = s->{return s*s;};
+		System.out.println(f.apply(5));		
+		
+	}
+}
