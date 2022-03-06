@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 15.818 s <<< FAILURE! - in TestSuite
+Mavenproject.Maventest.SampleTest.m  Time elapsed: 13.324 s  <<< FAILURE!
+java.lang.AssertionError: expected [true] but found [false]
+	at Mavenproject.Maventest.SampleTest.m(SampleTest.java:22)
+
