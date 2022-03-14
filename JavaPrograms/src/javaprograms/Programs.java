@@ -5,7 +5,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Programs {
@@ -29,6 +31,8 @@ public class Programs {
 		Programs.swap(2, 3);
 		Programs.duplicatewordregex("Hello Hello@!@ Hello123 Hi# Hi1242&*(");
 		System.out.println("How are you");
+		System.out.println(Programs.facr(5));
+		System.out.println(Programs.fac(5));
 
 	}
 
@@ -186,4 +190,30 @@ public class Programs {
 		Arrays.asList(a).stream().filter(e -> !e.equals("")).forEach(e -> System.out.println(e));
 	}
 
+	//with recursion
+	public static int facr(int i)
+	{
+		if (i==0)
+		{
+			return 1;
+		}
+		return i*facr(i-1);
+	}
+	//without recursion
+	public static int fac(int i)
+	{
+		int fact = 1;
+		if(i==0)
+		{
+			return 1;
+		}
+		else
+		{
+		for(int n =1;n<=i;n++)
+		{
+			fact = fact*n;
+		}
+		return fact;
+		}
+	}
 }
