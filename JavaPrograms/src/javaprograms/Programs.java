@@ -5,9 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Programs {
@@ -15,11 +13,17 @@ public class Programs {
 	static int total = 0;
 
 	public static void main(String[] args) {
+		
+       String str = "Test!ing@123";
+       String newstring = str.replaceAll("[^0-9a-zA-Z]","");
+       
+       System.out.println(newstring);
 
 		Programs.hackerrank("He is a very very good boy, isn't he?");
 		System.out.println(Programs.palindrome("MADAM") ? "It is a palindrome" : "It is not a palindrome");
 		System.out.println(Programs.Anagrams("SOLENT", "LISTEN") ? "Anagrams" : "Not Anagrams");
 		System.out.println(Programs.Anagrams2("SILENT", "LISTEN") ? "Anagrams" : "Not Anagrams");
+		
 		Programs.duplicatechar("MISSISIPPI");
 		Programs.duplicateword("Hi How are Hi are");
 		Programs.charrepeat("MISSISIPPI");

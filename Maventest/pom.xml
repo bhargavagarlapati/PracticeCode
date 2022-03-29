@@ -42,10 +42,7 @@
 					<configuration>
 						<suiteXmlFiles>
 							<suiteXmlFile>testng.xml</suiteXmlFile>
-						</suiteXmlFiles>
-						<suiteXmlFiles>
-							<suiteXmlFile>test-output.testng-failed.xml</suiteXmlFile>
-						</suiteXmlFiles>
+						</suiteXmlFiles>						
 					</configuration>
 				</plugin>
 			</plugins>

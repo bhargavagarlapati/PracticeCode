@@ -26,14 +26,17 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="CucumberPractice.CucumberPractice"/>
 			<item value="RESTASSUREDAPI.RESTASSUREDAPI"/>
 			<item value="Keyword.KeywordDrivenFramework"/>
 		</list>
 		<list key="groupId">
+			<item value="CucumberPractice"/>
 			<item value="RESTASSUREDAPI"/>
 			<item value="Keyword"/>
 		</list>
 		<list key="artifactId">
+			<item value="CucumberPractice"/>
 			<item value="RESTASSUREDAPI"/>
 			<item value="KeywordDrivenFramework"/>
 		</list>
