@@ -113,7 +113,6 @@ class TimeSheetValidator:
                 if (len(self.work_ids) != 0):
                     for j in range(len(self.work_ids)):
                         iteration_count = iteration_count+1
-                        #if self.work_ids[j].is_displayed() == False:self.driver.execute_script("arguments[0].scrollIntoView(true);",self.work_ids[j])
                         val = self.driver.find_element(By.XPATH,f"(//div[@name='tempoCardIssueKey']/a)[{iteration_count}]")
                         if not val.is_displayed():self.driver.execute_script("arguments[0].scrollIntoView(true);",val)
                         jira_id = self.driver.find_element(By.XPATH,f"(//div[@name='tempoCardIssueKey']/a)[{iteration_count}]").text
