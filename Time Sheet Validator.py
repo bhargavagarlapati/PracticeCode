@@ -136,8 +136,6 @@ class TimeSheetValidator:
 
                 actions.key_down(Keys.LEFT_CONTROL).send_keys(Keys.HOME).perform()
 
-            #self.driver.quit()
-
             if (len(self.Error_List) == 0):
                 self._displaymessage("No Errors: Success\n\n","Ok","400x200+100+40")
             else:
