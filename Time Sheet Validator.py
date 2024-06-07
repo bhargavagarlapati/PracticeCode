@@ -1,7 +1,7 @@
 import os
 import string
 import re
-
+import sys
 from selenium import webdriver
 from selenium.webdriver.edge.service import Service as Edge_Service
 from selenium.webdriver.edge.options import Options as Edge_Options
@@ -54,7 +54,7 @@ class TimeSheetValidator:
                 self.driver = webdriver.Edge(service=Edge_Service(), options=options)
             except SessionNotCreatedException:
                 self._displaymessage("Please run the Application again\n\n","Ok","300x150+500+100")
-                exit(0)
+                sys.exit(0)
 
         elif self.browser == "Chrome":
             os.system("taskkill /f /im  chrome.exe")
@@ -67,7 +67,7 @@ class TimeSheetValidator:
                 self.driver = webdriver.Chrome(service=Chrome_Service(), options=options)
             except SessionNotCreatedException:
                 self._displaymessage("Please run the Application again\n\n", "Ok", "300x150+500+100")
-                exit(0)
+                sys.exit(0)
 
         self.driver.get(self.url)
         self.driver.maximize_window()
