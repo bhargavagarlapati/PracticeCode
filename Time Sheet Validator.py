@@ -12,6 +12,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.common.exceptions import SessionNotCreatedException
 import tkinter as tk
 
 class TimeSheetValidator:
@@ -49,7 +50,11 @@ class TimeSheetValidator:
             options.add_argument(f"--user-data-dir=C:\\Users\\{os.getlogin()}\\AppData\\Local\\Microsoft\\Edge\\User Data")
             options.add_argument("--profile-directory=Default")
             options.add_experimental_option("excludeSwitches", ['enable-automation'])
-            self.driver = webdriver.Edge(service=Edge_Service(), options=options)
+            try:
+                self.driver = webdriver.Edge(service=Edge_Service(), options=options)
+            except SessionNotCreatedException:
+                self._displaymessage("Please run the Application again\n\n","Ok","300x150+500+100")
+                exit(0)
 
         elif self.browser == "Chrome":
             os.system("taskkill /f /im  chrome.exe")
@@ -58,7 +63,11 @@ class TimeSheetValidator:
             options.add_argument(f"--user-data-dir=C:\\Users\\{os.getlogin()}\\AppData\\Local\\Google\\Chrome\\User Data")
             options.add_argument("--profile-directory=Default")
             options.add_experimental_option("excludeSwitches", ['enable-automation'])
-            self.driver = webdriver.Chrome(service=Chrome_Service(), options=options)
+            try:
+                self.driver = webdriver.Chrome(service=Chrome_Service(), options=options)
+            except SessionNotCreatedException:
+                self._displaymessage("Please run the Application again\n\n", "Ok", "300x150+500+100")
+                exit(0)
 
         self.driver.get(self.url)
         self.driver.maximize_window()
