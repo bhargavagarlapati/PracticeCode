@@ -13,7 +13,10 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import SessionNotCreatedException
+from selenium.common.exceptions import NoSuchWindowException
+from selenium.common.exceptions import WebDriverException
 import tkinter as tk
+from tkinter import messagebox
 
 class TimeSheetValidator:
     url = "https://jira.ncr.com/secure/Tempo.jspa#/my-work/week?type=LIST"
@@ -24,8 +27,8 @@ class TimeSheetValidator:
     browser=""
 
     def __init__(self):
-
         root = tk.Tk()
+        root.protocol('WM_DELETE_WINDOW', sys.exit)
         root.title("Browser Selection")
         root.geometry("300x200+500+100")
         var = tk.StringVar()
@@ -53,7 +56,7 @@ class TimeSheetValidator:
             try:
                 self.driver = webdriver.Edge(service=Edge_Service(), options=options)
             except SessionNotCreatedException:
-                self._displaymessage("Please run the Application again\n\n","Ok","300x150+500+100")
+                self._displaymessage("Error Occurred!!\n\nPlease run the Application again\n","Ok","300x150+500+100")
                 sys.exit(0)
 
         elif self.browser == "Chrome":
@@ -66,7 +69,7 @@ class TimeSheetValidator:
             try:
                 self.driver = webdriver.Chrome(service=Chrome_Service(), options=options)
             except SessionNotCreatedException:
-                self._displaymessage("Please run the Application again\n\n", "Ok", "300x150+500+100")
+                self._displaymessage("Error Occurred!!\n\nPlease run the Application again\n","Ok","300x150+500+100")
                 sys.exit(0)
 
         self.driver.get(self.url)
@@ -192,6 +195,9 @@ class TimeSheetValidator:
         MsgBox.protocol('WM_DELETE_WINDOW', root.destroy)
         MsgBox.mainloop()
 
-x = TimeSheetValidator()
-x.timesheet_validator()
+try:
+    x = TimeSheetValidator()
+    x.timesheet_validator()
+except(NoSuchWindowException,WebDriverException):
+    messagebox.showinfo("Error","Browser got closed\n\nPlease run the application again")
 #End of Line
