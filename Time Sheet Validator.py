@@ -200,4 +200,3 @@ try:
     x.timesheet_validator()
 except(NoSuchWindowException,WebDriverException):
     messagebox.showinfo("Error","Browser got closed\n\nPlease run the application again")
-#End of Line
